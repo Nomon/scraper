@@ -1,0 +1,16 @@
+{
+  "name": "Simple website scraper",
+  "description": "Makes scraping data from multipage websites quite plesent",
+  "version": "0.0.1",
+  "homepage": "http://www.applifier.com",
+  "author": "Matti Savolainen (http://www.applifier.com)",
+  "directories": {
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "dependencies": {
+    "jsdom": "0.2.0",
+    "ahr": "0.9.10"
+  }
+}
