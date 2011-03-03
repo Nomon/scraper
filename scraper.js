@@ -50,17 +50,16 @@ Scraper.prototype.scrape = function(query, collector) {
 	});
 }
 
-// Implemented in inhetired class
-Scraper.prototype.getScrapeUrl = function(query) {
-	throw "getSearchUrl() is unimplemented!";
-}
+
+
 // Implemented in inhetired class
 Scraper.prototype.parseHTML = function(window) {
 	throw "parseFHTML() is unimplemented!";
 }
-// Emits 'item' events when an item is found.
-Scraper.prototype.onItem = function(item) {
-	this.emit('item', item);
+
+// Implemented in inhetired class
+Scraper.prototype.getScrapeUrl = function(query) {
+	throw "getScrapeUrl() not implemented!";
 }
 // Emits 'complete' event when searcher is done
 Scraper.prototype.onComplete = function(scraper) {
@@ -69,6 +68,11 @@ Scraper.prototype.onComplete = function(scraper) {
 // Emit 'error' events
 Scraper.prototype.onError = function(error) {
 	this.emit('error', error);
+}
+
+// Emits 'item' events when an item is found.
+Scraper.prototype.onItem = function(item) {
+	this.emit('item', item);
 }
 
 Scraper.prototype.toString = function() {
