@@ -1,8 +1,10 @@
 // External Modules
 var request = require('ahr'),
-sys = require('sys'),
-events = require('events'),
-jsdom = require('jsdom');
+	util = require('util'),
+	events = require('events'),
+	jsdom = require('jsdom'),
+	inherits = require('util').inherits,
+	EventEmitter = require('events').EventEmitter;
 
 var jQueryPath = 'http://code.jquery.com/jquery-1.4.2.min.js';
 var headers = {'content-type':'application/json', 'accept': 'application/json'};
@@ -10,7 +12,7 @@ var headers = {'content-type':'application/json', 'accept': 'application/json'};
 // Export searcher
 module.exports = Scraper;
 
-function Scraper(param) {
+var Scraper = module.exports = function(param) {
 	if (param.headers) {
 		this.headers = param.headers;
 	} else {
@@ -22,7 +24,7 @@ function Scraper(param) {
 }
 
 // Inherit from EventEmitter
-Scraper.prototype = new process.EventEmitter;
+inherits(Scraper, EventEmitter)
 
 Scraper.prototype.scrape = function(query, collector) {
 	var self = this;
