@@ -28,14 +28,14 @@ Scraper.prototype.scrape = function(query, collector) {
 	var self = this;
 	var url = self.getScrapeUrl(query);
 
-	console.log('Connecting to... ' + url);
+	console.log('Connecting ' + url);
 
 	request({uri: url, method: 'GET', headers: self.headers, timeout: 30000}, function(err, response, html) {
 		if (err) {
 			self.onError({error: err, searcher: self});
 			self.onComplete({searcher: self});
 		} else {
-			console.log('Fetched content from... ' + url);
+			console.log('Fetched ' + url);
 			// create DOM window from HTML data
 			var window = jsdom.jsdom(html,null,{features: {
 				ProcessExternalResources : false,
@@ -54,7 +54,7 @@ Scraper.prototype.scrape = function(query, collector) {
 
 // Implemented in inhetired class
 Scraper.prototype.parseHTML = function(window) {
-	throw "parseFHTML() is unimplemented!";
+	throw "parseHTML() is unimplemented!";
 }
 
 // Implemented in inhetired class
