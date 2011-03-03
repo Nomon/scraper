@@ -1,4 +1,4 @@
-To install:
+To install dependencies (see package.json):
 npm install .
 
 To use:
