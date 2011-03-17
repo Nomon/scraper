@@ -34,8 +34,8 @@ Scraper.prototype.scrape = function(query, collector) {
 
 	request({uri: url, method: 'GET', headers: self.headers, timeout: 30000}, function(err, response, html) {
 		if (err) {
-			self.onError({error: err, searcher: self});
-			self.onComplete({searcher: self});
+			self.onError({error: err, scraper: self});
+			self.onComplete({scraper: self});
 		} else {
 			console.log('Fetched ' + url);
 			// create DOM window from HTML data
